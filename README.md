@@ -9,15 +9,17 @@ Aplicación Android desarrollada siguiendo exclusivamente el [codelab de epancha
 | Componente | Configuración |
 |---|---|
 | Proyecto / aplicación / paquete | IATinyFish / TinyPrice / com.apps.iatinyfish |
-| Android Studio | Compatible con AGP 9.4.1 y SDK 37; entorno comprobado: Quail 3, 2026.1.3 Patch 1 |
+| Android Studio | Compatible con AGP 9.3.x y SDK 37; entorno comprobado: Quail 3, 2026.1.3 Patch 1 |
 | JDK para Gradle | 17 o superior; compilación verificada con JDK 17 |
 | Java del código | 11 |
-| AGP / Gradle Wrapper | 9.4.1 / 9.6.0, con SHA-256 de la distribución |
+| AGP / Gradle Wrapper | 9.3.3 / 9.6.0, con SHA-256 de la distribución |
 | Kotlin Compose / Compose BOM | 2.2.10 / 2026.02.01 |
 | SDK de compilación / destino / mínimo | 37 / 37 / 23 |
 | Datos y estado | ViewModel, StateFlow, corrutinas, Retrofit 3.0.0, Gson y OkHttp |
 | Backend | TypeScript, Deno.serve, Supabase Cloud y TinyFish Search |
 | Herramientas de despliegue | Node.js y Supabase CLI local; verificadas: Node 24.16.0 y CLI 2.121.0 |
+
+**Ajuste de compatibilidad comprobado:** AGP 9.4.1, solicitado por el codelab, compiló desde terminal pero el Android Studio instalado rechazó su sincronización y declaró compatibilidad hasta la rama 9.3. Se utiliza 9.3.3, la misma revisión de la plantilla creada por ese IDE. Se conservan SDK 37, Gradle 9.6.0 y todas las demás versiones. La [compatibilidad oficial de AGP 9.3](https://developer.android.com/build/releases/agp-9-3-0-release-notes) incluye API 37, Gradle 9.5.0 o superior y JDK 17 o superior.
 
 ## Abrir y compilar
 

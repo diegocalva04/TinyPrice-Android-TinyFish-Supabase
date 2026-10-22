@@ -7,10 +7,10 @@ Fecha: 22 de octubre de 2026, zona America/Guayaquil. Los estados siguientes des
 | Comprobación | Resultado |
 |---|---|
 | Proyecto, aplicación y paquete | IATinyFish, TinyPrice, com.apps.iatinyfish. Plantilla Empty Activity existente, creada originalmente por Android CLI; no se afirma creación mediante asistente gráfico. |
-| Versiones del codelab | AGP 9.4.1, Wrapper 9.6.0, Kotlin Compose 2.2.10, BOM 2026.02.01, compile/target 37, min 23 y Java 11. Sin sustituciones. |
-| Entorno | JDK 17 utilizado para las compilaciones; Android Studio Quail 3, 2026.1.3 Patch 1 detectado. SDK 37 instalado. Node 24.16.0 y Supabase CLI 2.121.0 comprobados. |
+| Versiones | AGP 9.4.1 comprobado inicialmente en terminal; ajuste final a 9.3.3 por incompatibilidad comprobada con Android Studio Quail 3. Wrapper 9.6.0, Kotlin Compose 2.2.10, BOM 2026.02.01, compile/target 37, min 23 y Java 11 conservados. |
+| Entorno | Compilaciones iniciales con JDK 17; el IDE eligió JBR 25 para la compilación final local. Android Studio Quail 3, 2026.1.3 Patch 1. SDK 37 instalado. Node 24.16.0 y Supabase CLI 2.121.0 comprobados. |
 | `gradlew --version` y configuración | Gradle responde; `help` terminó con BUILD SUCCESSFUL. Distribución 9.6.0 protegida con SHA-256. |
-| Apertura en Android Studio | IATinyFish abierto como proyecto independiente y confirmado READY por Android CLI; MainActivity.kt abierto en su editor. El criterio de JDK 25 que generó el IDE se conserva como configuración local ignorada; el tutorial admite JDK 17 o superior. |
+| Apertura en Android Studio | IATinyFish abierto como proyecto independiente; MainActivity.kt abierto en su editor. READY de Android CLI confirma acceso al proyecto, pero no garantiza sincronización: la primera sincronización rechazó AGP 9.4.1. Después del ajuste a 9.3.3 se inspeccionó el panel Sync: proyecto terminado a las 18:15 y BUILD SUCCESSFUL. El criterio de JDK 25 que generó el IDE se conserva como configuración local ignorada; el tutorial admite JDK 17 o superior. |
 | `:app:compileDebugKotlin` | BUILD SUCCESSFUL para la capa de datos y después para el ViewModel. |
 | `:app:assembleDebug` | BUILD SUCCESSFUL en demostración y en modo remoto con la URL real. |
 | Dispositivo | Teléfono Redmi 23100RN82L con Android 15/API 35, autorizado mediante ADB. |
@@ -71,7 +71,7 @@ La validación local del código comprobó 200, 400, 405, 429, 502 y 503. Para e
 - `local.properties`, `node_modules/`, archivos de entorno privados y resultados de compilación están ignorados. El único archivo de entorno publicado es un ejemplo con marcador.
 - Se inspeccionaron los contenidos descomprimidos de los APK de demostración y remoto: no contienen la clave de TinyFish, el patrón de sus claves ni TINYFISH_API_KEY.
 - Android solo conoce la URL pública de Supabase. Las respuestas verificadas no contienen la credencial y conservan enlaces HTTP(S). No se añaden scraping, autenticación del cliente ni base de datos.
-- Veinte archivos Android coinciden íntegramente con la referencia completa. Los tres archivos distintos corresponden a las propiedades remotas, las correcciones de márgenes/semántica/contraste y la regla de la prueba instrumentada. El backend coincide con el bloque del paso 12. El wrapper conserva su contenido y añade el permiso ejecutable para Unix.
+- Diecinueve archivos Android coinciden íntegramente con la referencia completa. Los cuatro archivos distintos corresponden al ajuste AGP por compatibilidad del IDE, las propiedades remotas, las correcciones de márgenes/semántica/contraste y la regla de la prueba instrumentada. El backend coincide con el bloque del paso 12. El wrapper conserva su contenido y añade el permiso ejecutable para Unix.
 - La referencia completa incluye Tech Mart como tercera oferta ficticia; no se inventó ese dato. El fragmento explicativo solo muestra las dos primeras ofertas.
 - No se publicó en Google Play ni se configuró una distribución pública. La función conserva las limitaciones didácticas advertidas por el tutorial.
 

@@ -1,6 +1,6 @@
 # Historial cronológico de implementación
 
-Commits reales de la rama main, en orden de creación. Cada uno tiene un cuerpo explicativo en español en Git. Este índice cubre la implementación anterior a su propia creación; los commits documentales finales se consultan en el historial completo.
+Commits reales de la rama main, en orden de creación. Cada uno tiene un cuerpo explicativo en español en Git. Este índice incluye la implementación y el ajuste final de compatibilidad; su propio cierre documental se consulta en el historial completo.
 
 [Historial completo en GitHub](https://github.com/diegocalva04/TinyPrice-Android-TinyFish-Supabase/commits/main/)
 
@@ -29,5 +29,8 @@ Commits reales de la rama main, en orden de creación. Cada uno tiene un cuerpo 
 | `42b20929` | chore: permitir la ejecución del wrapper en sistemas Unix | Se registra el permiso ejecutable del script gradlew para que una clonación en Linux o macOS pueda utilizar ./gradlew según las instrucciones del proyecto. El contenido del wrapper y su distribución verificada no cambian. |
 
 | `b48f16cd` | docs: documentar configuración, verificaciones e historial de TinyPrice | README en español, configuración reproducible, resultados reales, diferencias del codelab e índice cronológico. |
+| `08d7060` | docs: confirmar publicación privada y reproducción desde GitHub | Se documenta la clonación limpia desde el repositorio privado, su compilación y las pruebas unitarias, además de la instalación reproducible de las herramientas de Supabase. |
+| `7402389` | chore: conservar localmente la selección de JDK de Android Studio | Se excluye el criterio de JDK generado por Android Studio y se registra la apertura del proyecto independiente. |
+| `8eae585` | fix: ajustar AGP a la versión compatible con Android Studio | AGP cambia de 9.4.1 a 9.3.3 por el rechazo comprobado del IDE instalado. Se conservan Gradle 9.6.0, SDK 37 y las demás dependencias; se comprueba la sincronización real con BUILD SUCCESSFUL. |
 
 Para revisar las descripciones completas y los cambios: `git log --reverse --stat` y `git show HASH`.

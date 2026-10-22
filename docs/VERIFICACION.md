@@ -29,6 +29,8 @@ Fecha: 22 de octubre de 2026, zona America/Guayaquil. Los estados siguientes des
 
 Antes de las ejecuciones instrumentadas aprobadas hubo intentos fallidos: interrupción del proceso, instalación rechazada con INSTALL_FAILED_USER_RESTRICTED y arranque que no completó el escenario genérico. La prueba final usa la actividad real con las mismas aserciones. Se conserva este diagnóstico y no se cuentan los intentos fallidos como aprobados. Se aprobó primero sobre el APK de demostración y después sobre la versión final con el modo remoto habilitado. En este teléfono fue necesario mantener TinyPrice en primer plano; se abrió la actividad con ADB durante el escenario, sin cambiar permisos ni aserciones. El informe final confirmó una prueba ejecutada y cero fallos.
 
+Después del cambio a AGP 9.3.3 se repitió `connectedDebugAndroidTest`: BUILD SUCCESSFUL en 49 segundos; XML con una prueba, cero fallos, cero errores y ninguna omitida, fechado a las 18:25 locales. Las tres pruebas unitarias también pasaron sobre esta configuración. Se reinstaló el APK final y se repitió Nintendo Switch OLED: se observaron la carga y nueve resultados reales de la web. Los ocho casos manuales completos de la sección siguiente se realizaron antes del cambio de AGP; este ajuste de herramienta no modificó la lógica ni la interfaz.
+
 ## Ocho casos manuales del codelab
 
 | Caso | Evidencia y resultado |
@@ -68,6 +70,7 @@ La validación local del código comprobó 200, 400, 405, 429, 502 y 503. Para e
 ## Seguridad y fidelidad
 
 - Se inspeccionaron los blobs del historial y los archivos preparados para publicación buscando la clave vigente y patrones de tokens privados; no se encontraron credenciales versionadas.
+- La revisión posterior al ajuste de AGP inspeccionó 56 archivos versionados, 91 blobs históricos y el APK final de 12.619.369 bytes; no encontró la clave vigente ni patrones de credenciales privadas. El APK tampoco contiene TINYFISH_API_KEY.
 - `local.properties`, `node_modules/`, archivos de entorno privados y resultados de compilación están ignorados. El único archivo de entorno publicado es un ejemplo con marcador.
 - Se inspeccionaron los contenidos descomprimidos de los APK de demostración y remoto: no contienen la clave de TinyFish, el patrón de sus claves ni TINYFISH_API_KEY.
 - Android solo conoce la URL pública de Supabase. Las respuestas verificadas no contienen la credencial y conservan enlaces HTTP(S). No se añaden scraping, autenticación del cliente ni base de datos.
@@ -81,6 +84,7 @@ La validación local del código comprobó 200, 400, 405, 429, 502 y 503. Para e
 - Se revisaron 56 archivos versionados y los 83 blobs que contenía el historial antes de la publicación inicial. No se encontraron claves ni archivos privados. La configuración Android, el Wrapper, la función y la configuración de Supabase y la documentación quedaron incluidas.
 - Se clonó desde GitHub el commit `b48f16cdafcc1a1fefd4d5c146cfc34e9e157645` en una carpeta temporal nueva, sin copiar local.properties ni archivos de entorno. En este equipo, con JDK y SDK ya instalados, `:app:assembleDebug :app:testDebugUnitTest` terminó con BUILD SUCCESSFUL: 44 tareas ejecutadas y tres pruebas unitarias sin fallos.
 - En esa clonación, `npm ci` instaló correctamente las ocho dependencias de herramientas y `npx supabase --version` confirmó 2.121.0. El árbol de trabajo permaneció limpio.
-- Los commits posteriores a esa comprobación actualizan la documentación y excluyen el criterio local de JDK generado por Android Studio; no cambian fuentes ni dependencias de la app. La aplicación final quedó instalada en el teléfono con el modo remoto habilitado; se restauraron las preferencias temporales de red, orientación, tema automático y tamaño de fuente.
+- Posteriormente se cambió únicamente AGP a 9.3.3 en el commit `8eae585b1eece1e0113b17d805dd9e9f28b77656` para permitir la sincronización del IDE. La aplicación final quedó instalada en el teléfono con el modo remoto habilitado; se restauraron las preferencias temporales de red, orientación, tema automático y tamaño de fuente.
+- Se actualizó la clonación limpia desde GitHub hasta `8eae585b1eece1e0113b17d805dd9e9f28b77656`, sin copiar archivos privados ni la selección de JDK del IDE. Con JDK 17, `:app:assembleDebug :app:testDebugUnitTest --max-workers=1` terminó con BUILD SUCCESSFUL en 1 minuto y 56 segundos, con las 44 tareas ejecutadas. El XML confirmó tres pruebas, cero fallos, cero errores y ninguna omitida. Los cambios posteriores a este commit únicamente cierran este informe y su índice histórico.
 
 El historial cronológico de implementación y los enlaces al historial completo están en [HISTORIAL.md](HISTORIAL.md). Permanecen sin ejecutar el recorrido auditivo completo con TalkBack y la actividad opcional de Gemini; las diferencias de la skill actual y la ausencia de un 429 remoto reproducible se describen arriba y no se declaran verificaciones aprobadas.

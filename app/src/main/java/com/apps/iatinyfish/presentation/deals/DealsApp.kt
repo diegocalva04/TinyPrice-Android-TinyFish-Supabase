@@ -180,12 +180,12 @@ private fun HeroCard() {
                 .padding(24.dp),
         ) {
             Surface(color = Color.White.copy(alpha = .18f), shape = RoundedCornerShape(99.dp)) {
-                Text("DEMO · BÚSQUEDA DE OFERTAS", Modifier.padding(horizontal = 10.dp, vertical = 5.dp), color = Color.White, fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = .8.sp)
+                Text("DEMO · BÚSQUEDA DE OFERTAS", Modifier.padding(horizontal = 10.dp, vertical = 5.dp), color = MaterialTheme.colorScheme.onPrimary, fontSize = 11.sp, fontWeight = FontWeight.Bold, letterSpacing = .8.sp)
             }
             Spacer(Modifier.height(18.dp))
-            Text("Encuentra la mejor compra sin abrir diez pestañas.", style = MaterialTheme.typography.headlineSmall, color = Color.White, fontWeight = FontWeight.ExtraBold, lineHeight = 30.sp)
+            Text("Encuentra la mejor compra sin abrir diez pestañas.", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.onPrimary, fontWeight = FontWeight.ExtraBold, lineHeight = 30.sp)
             Spacer(Modifier.height(10.dp))
-            Text("TinyPrice compara ofertas, entrega y valor para ayudarte a decidir.", style = MaterialTheme.typography.bodyLarge, color = Color.White.copy(alpha = .9f))
+            Text("TinyPrice compara ofertas, entrega y valor para ayudarte a decidir.", style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onPrimary.copy(alpha = .9f))
         }
     }
 }

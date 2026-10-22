@@ -10,6 +10,7 @@ Fecha: 22 de octubre de 2026, zona America/Guayaquil. Los estados siguientes des
 | Versiones del codelab | AGP 9.4.1, Wrapper 9.6.0, Kotlin Compose 2.2.10, BOM 2026.02.01, compile/target 37, min 23 y Java 11. Sin sustituciones. |
 | Entorno | JDK 17 utilizado para las compilaciones; Android Studio Quail 3, 2026.1.3 Patch 1 detectado. SDK 37 instalado. Node 24.16.0 y Supabase CLI 2.121.0 comprobados. |
 | `gradlew --version` y configuración | Gradle responde; `help` terminó con BUILD SUCCESSFUL. Distribución 9.6.0 protegida con SHA-256. |
+| Apertura en Android Studio | IATinyFish abierto como proyecto independiente y confirmado READY por Android CLI; MainActivity.kt abierto en su editor. El criterio de JDK 25 que generó el IDE se conserva como configuración local ignorada; el tutorial admite JDK 17 o superior. |
 | `:app:compileDebugKotlin` | BUILD SUCCESSFUL para la capa de datos y después para el ViewModel. |
 | `:app:assembleDebug` | BUILD SUCCESSFUL en demostración y en modo remoto con la URL real. |
 | Dispositivo | Teléfono Redmi 23100RN82L con Android 15/API 35, autorizado mediante ADB. |
@@ -80,6 +81,6 @@ La validación local del código comprobó 200, 400, 405, 429, 502 y 503. Para e
 - Se revisaron 56 archivos versionados y los 83 blobs que contenía el historial antes de la publicación inicial. No se encontraron claves ni archivos privados. La configuración Android, el Wrapper, la función y la configuración de Supabase y la documentación quedaron incluidas.
 - Se clonó desde GitHub el commit `b48f16cdafcc1a1fefd4d5c146cfc34e9e157645` en una carpeta temporal nueva, sin copiar local.properties ni archivos de entorno. En este equipo, con JDK y SDK ya instalados, `:app:assembleDebug :app:testDebugUnitTest` terminó con BUILD SUCCESSFUL: 44 tareas ejecutadas y tres pruebas unitarias sin fallos.
 - En esa clonación, `npm ci` instaló correctamente las ocho dependencias de herramientas y `npx supabase --version` confirmó 2.121.0. El árbol de trabajo permaneció limpio.
-- Los commits posteriores a esa comprobación solo actualizan la documentación de cierre. La aplicación final quedó instalada en el teléfono con el modo remoto habilitado; se restauraron las preferencias temporales de red, orientación, tema automático y tamaño de fuente.
+- Los commits posteriores a esa comprobación actualizan la documentación y excluyen el criterio local de JDK generado por Android Studio; no cambian fuentes ni dependencias de la app. La aplicación final quedó instalada en el teléfono con el modo remoto habilitado; se restauraron las preferencias temporales de red, orientación, tema automático y tamaño de fuente.
 
 El historial cronológico de implementación y los enlaces al historial completo están en [HISTORIAL.md](HISTORIAL.md). Permanecen sin ejecutar el recorrido auditivo completo con TalkBack y la actividad opcional de Gemini; las diferencias de la skill actual y la ausencia de un 429 remoto reproducible se describen arriba y no se declaran verificaciones aprobadas.

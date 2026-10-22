@@ -22,5 +22,8 @@ supabase/.env.production.local
 .idea/
 .kotlin/
 
+# Selección local del JDK generada automáticamente por Android Studio.
+/gradle/gradle-daemon-jvm.properties
+
 
 !supabase/.env.example

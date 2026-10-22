@@ -76,4 +76,10 @@ La validación local del código comprobó 200, 400, 405, 429, 502 y 503. Para e
 
 ## Publicación y reproducción
 
-El resultado de la publicación y la comprobación desde una copia nueva se registran al finalizar en esta sección. El historial de implementación está en [HISTORIAL.md](HISTORIAL.md).
+- Repositorio real: [diegocalva04/TinyPrice-Android-TinyFish-Supabase](https://github.com/diegocalva04/TinyPrice-Android-TinyFish-Supabase), visibilidad **PRIVATE**, rama main. Se comprobó el push y la coincidencia entre el commit local y el remoto.
+- Se revisaron 56 archivos versionados y los 83 blobs que contenía el historial antes de la publicación inicial. No se encontraron claves ni archivos privados. La configuración Android, el Wrapper, la función y la configuración de Supabase y la documentación quedaron incluidas.
+- Se clonó desde GitHub el commit `b48f16cdafcc1a1fefd4d5c146cfc34e9e157645` en una carpeta temporal nueva, sin copiar local.properties ni archivos de entorno. En este equipo, con JDK y SDK ya instalados, `:app:assembleDebug :app:testDebugUnitTest` terminó con BUILD SUCCESSFUL: 44 tareas ejecutadas y tres pruebas unitarias sin fallos.
+- En esa clonación, `npm ci` instaló correctamente las ocho dependencias de herramientas y `npx supabase --version` confirmó 2.121.0. El árbol de trabajo permaneció limpio.
+- Los commits posteriores a esa comprobación solo actualizan la documentación de cierre. La aplicación final quedó instalada en el teléfono con el modo remoto habilitado; se restauraron las preferencias temporales de red, orientación, tema automático y tamaño de fuente.
+
+El historial cronológico de implementación y los enlaces al historial completo están en [HISTORIAL.md](HISTORIAL.md). Permanecen sin ejecutar el recorrido auditivo completo con TalkBack y la actividad opcional de Gemini; las diferencias de la skill actual y la ausencia de un 429 remoto reproducible se describen arriba y no se declaran verificaciones aprobadas.

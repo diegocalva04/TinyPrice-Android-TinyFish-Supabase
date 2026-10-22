@@ -28,4 +28,6 @@ Commits reales de la rama main, en orden de creación. Cada uno tiene un cuerpo 
 | `a0d18db9` | fix: conservar contraste en la portada con el tema oscuro | La revisión visual con texto ampliado detectó que el blanco fijo del bloque de portada perdía contraste sobre el gradiente claro del esquema oscuro original. |
 | `42b20929` | chore: permitir la ejecución del wrapper en sistemas Unix | Se registra el permiso ejecutable del script gradlew para que una clonación en Linux o macOS pueda utilizar ./gradlew según las instrucciones del proyecto. El contenido del wrapper y su distribución verificada no cambian. |
 
+| `b48f16cd` | docs: documentar configuración, verificaciones e historial de TinyPrice | README en español, configuración reproducible, resultados reales, diferencias del codelab e índice cronológico. |
+
 Para revisar las descripciones completas y los cambios: `git log --reverse --stat` y `git show HASH`.

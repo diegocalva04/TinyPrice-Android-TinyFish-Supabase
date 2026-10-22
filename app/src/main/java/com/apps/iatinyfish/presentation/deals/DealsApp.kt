@@ -57,6 +57,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
@@ -155,7 +156,7 @@ private fun DiscoveryHome(topPadding: androidx.compose.ui.unit.Dp, onSuggestion:
                         AssistChip(
                             onClick = { onSuggestion(suggestion) },
                             label = { Text(suggestion) },
-                            leadingIcon = { Text("✦") },
+                            leadingIcon = { Text("✦", modifier = Modifier.clearAndSetSemantics {}) },
                             colors = AssistChipDefaults.assistChipColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
                         )
                     }
@@ -245,7 +246,7 @@ private fun SearchResults(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Text("◌", fontSize = 42.sp, color = MaterialTheme.colorScheme.primary)
+            Text("◌", modifier = Modifier.clearAndSetSemantics {}, fontSize = 42.sp, color = MaterialTheme.colorScheme.primary)
             Spacer(Modifier.height(12.dp))
             Text(errorMessage ?: "No encontramos ofertas para “$query”", style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
@@ -382,7 +383,7 @@ private fun DetailLine(label: String, value: String) {
 @Composable
 private fun FishMark() {
     Box(Modifier.size(42.dp).clip(CircleShape).background(MaterialTheme.colorScheme.primary), contentAlignment = Alignment.Center) {
-        Text("◒", color = MaterialTheme.colorScheme.onPrimary, fontSize = 25.sp, fontWeight = FontWeight.Black)
+        Text("◒", modifier = Modifier.clearAndSetSemantics {}, color = MaterialTheme.colorScheme.onPrimary, fontSize = 25.sp, fontWeight = FontWeight.Black)
     }
 }
 

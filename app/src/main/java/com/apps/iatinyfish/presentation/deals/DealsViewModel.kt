@@ -31,3 +31,47 @@ sealed interface DealsEvent {
     data object Back : DealsEvent
 }
 
+class DealsViewModel(
+    private val repository: DealsRepository = DealsRepositoryProvider.create(),
+) : ViewModel() {
+    private var searchJob: Job? = null
+    private val _state = MutableStateFlow(DealsUiState(isPreviewData = repository.isPreviewData))
+    val state: StateFlow<DealsUiState> = _state.asStateFlow()
+
+    fun onEvent(event: DealsEvent) {
+        when (event) {
+            is DealsEvent.QueryChanged -> _state.update { it.copy(query = event.value, selectedOffer = null, errorMessage = null) }
+            DealsEvent.SubmitSearch -> search(_state.value.query)
+            is DealsEvent.UseSuggestion -> {
+                _state.update { it.copy(query = event.value, selectedOffer = null, errorMessage = null) }
+                search(event.value)
+            }
+            is DealsEvent.OpenOffer -> _state.update { it.copy(selectedOffer = event.offer) }
+            DealsEvent.Back -> _state.update { it.copy(selectedOffer = null) }
+        }
+    }
+
+    private fun search(query: String) {
+        if (query.isBlank()) {
+            _state.update {
+                it.copy(
+                    hasSearched = true,
+                    offers = emptyList(),
+                    errorMessage = "Escribe un producto para iniciar la búsqueda.",
+                )
+            }
+            return
+        }
+
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            _state.update { it.copy(isLoading = true, hasSearched = true, selectedOffer = null, errorMessage = null) }
+            try {
+                val offers = repository.search(query)
+                _state.update { it.copy(offers = offers, isLoading = false) }
+            } catch (exception: RemoteSearchException) {
+                _state.update { it.copy(offers = emptyList(), isLoading = false, errorMessage = exception.message) }
+            }
+        }
+    }
+}

@@ -1,22 +1,16 @@
 package com.apps.iatinyfish.presentation.deals
 
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import com.apps.iatinyfish.ui.theme.IATinyFishTheme
+import com.apps.iatinyfish.MainActivity
 import org.junit.Rule
 import org.junit.Test
 
 class DealsAppTest {
-    @get:Rule val composeRule = createComposeRule()
+    @get:Rule val composeRule = createAndroidComposeRule<MainActivity>()
 
     @Test fun startScreenShowsSearchAndSuggestion() {
-        composeRule.setContent {
-            IATinyFishTheme {
-                DealsApp(state = DealsUiState(), onEvent = {})
-            }
-        }
-
         composeRule.onNodeWithText("Buscar").assertIsDisplayed()
         composeRule.onNodeWithText("Nintendo Switch OLED").assertIsDisplayed()
     }

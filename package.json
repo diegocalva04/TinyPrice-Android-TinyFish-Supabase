@@ -1,0 +1,8 @@
+{
+  "name": "iatinyfish",
+  "version": "1.0.0",
+  "devDependencies": {
+    "supabase": "^2.121.0"
+  },
+  "private": true
+}
